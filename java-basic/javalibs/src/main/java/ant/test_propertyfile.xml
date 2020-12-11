@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project name="Hello World Project" default="info">
+
+   <property file="build1.properties"/>  <!--使用属性文件-->
+
+   <target name="info">
+      <echo>Apache Ant version is ${ant.version} - You are at ${sitename}, Buildversion is ${buildversion}</echo>
+   </target>
+
+</project>

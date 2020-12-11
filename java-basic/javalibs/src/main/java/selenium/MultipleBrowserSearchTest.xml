@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="3"> <!--parallel表示使用不同的线程运行test标签定义的测试类  线程数3-->
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>  <!--定义browser参数-->
+        <classes>
+            <class name="selenium.MultipleBrowserSearchTest"/>
+        </classes>
+    </test>
+    
+    <test name="SafariTest">
+        <parameter name="browser" value="safari"/>
+        <classes>
+            <class name="selenium.MultipleBrowserSearchTest"/>
+        </classes>
+    </test>
+
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="selenium.MultipleBrowserSearchTest"/>
+        </classes>
+    </test>
+</suite>

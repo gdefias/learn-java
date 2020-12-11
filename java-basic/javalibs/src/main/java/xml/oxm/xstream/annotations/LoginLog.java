@@ -1,0 +1,48 @@
+package xml.oxm.xstream.annotations;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
+import java.io.Serializable;
+import java.util.Date;
+
+@XStreamAlias("loginLog")  
+public class LoginLog implements Serializable {
+	@XStreamAsAttribute 
+	@XStreamAlias("id")  
+	private int loginLogId;
+	@XStreamAsAttribute 
+	private int userId;
+	@XStreamAlias("ip")  
+	private String ip;
+	
+	@XStreamAlias("loginDate")   
+	@XStreamConverter(DateConverter.class)  
+	private Date loginDate;
+	
+	public int getLoginLogId() {
+		return loginLogId;
+	}
+	public void setLoginLogId(int loginLogId) {
+		this.loginLogId = loginLogId;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public Date getLoginDate() {
+		return loginDate;
+	}
+	public void setLoginDate(Date loginDate) {
+		this.loginDate = loginDate;
+	}
+	
+
+}

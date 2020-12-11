@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--用Ant来执行Java代码-->
+<project name="sample" basedir="" default="notify">
+   <target name="notify">
+      <java fork="true" failonerror="yes" classname="test_runjava">
+         <arg line="admin@test.com"/>
+      </java>
+   </target>
+</project>
+
+
+<!--
+关于arg数据参数元素：
+由Ant构建文件调用的程序，可以通过<arg>元素向其传递命令行参数，如apply,exec和java任务均可接受嵌套<arg>元素，可以为各自的过程调用指定参数。以下是<arg>的所有属性。
+● values 是一个命令参数。如果参数中有空格，但又想将它作为单独一个值，则使用此属性。
+● file 表示一个参数的文件名。在构建文件中，此文件名相对于当前的工作目录。
+● line 表示用空格分隔的多个参数列表。
+● 表示路径，一个作为单个命令行变量的path-like的字符串；或作为分隔符，Ant会将其转变为特定平台的分隔符。
+● pathref 引用的path（使用path元素节点定义path）的id
+● prefix 前缀
+● suffix 后缀
+
+-->

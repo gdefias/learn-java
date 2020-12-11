@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="Hello World Project" default="deploy">
+  <!--目标和目标之间可以有依赖关系-->
+  <target name="deploy" depends="package">  <!--部署deploy目标可能依赖于封装package目标-->
+    <echo>run target deploy!</echo>
+  </target>
+
+  <target name="package" depends="clean,compile"> <!--封装package目标又依赖于编译compile和clean目标-->
+    <echo>run target package!</echo>
+  </target>
+
+  <target name="clean" >
+    <echo>run target clean!</echo>
+  </target>
+
+  <target name="compile" >
+    <echo>run target compile!</echo>
+  </target>
+
+</project>
+

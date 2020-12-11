@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!--将web应用程序部署到一个应用服务器的部署文件夹中-->
+<project name="fax" basedir="" default="usage">
+   <property file="build2.properties"/>
+   <property name="src.dir" value="src"/>
+   <property name="web.dir" value="war"/>
+   <property name="javadoc.dir" value="doc"/>
+   <property name="gradle.Base.build.dir" value="${web.dir}/WEB-INF/classes"/>
+   <property name="name" value="fax"/>
+
+   <path id="master-classpath">
+      <fileset dir="${web.dir}/WEB-INF/lib">
+         <include name="*.jar"/>
+      </fileset>
+   <pathelement path="${build.dir}"/>
+   </path>
+
+   <target name="javadoc">
+      <javadoc packagenames="faxapp.*" sourcepath="${src.dir}"
+         destdir="doc" version="true" windowtitle="Fax Application">
+
+         <doctitle><![CDATA[<h1>= Fax Application = </h1>]]></doctitle>
+         <bottom><![CDATA[Copyright © 2011. All Rights Reserved.]]></bottom>
+         <group title="util packages" packages="faxapp.util.*"/>
+         <group title="web packages" packages="faxapp.web.*"/>
+         <group title="data packages" packages="faxapp.entity.*:faxapp.dao.*"/>
+
+      </javadoc>
+   </target>
+
+   <target name="usage">
+   <echo message=""/>
+   <echo message="${name} gradle.Base.build file"/>
+   <echo message="-----------------------------------"/>
+   <echo message=""/>
+   <echo message="Available targets are:"/>
+   <echo message=""/>
+   <echo message="deploy    --> Deploy application as directory"/>
+   <echo message="deploywar --> Deploy application as a WAR file"/>
+   <echo message=""/>
+   </target>
+
+   <target name="gradle.Base.build" description="Compile main source tree java files">
+   <mkdir dir="${build.dir}"/>
+      <javac destdir="${build.dir}" source="1.5" target="1.5" debug="true"
+         deprecation="false" optimize="false" failonerror="true">
+         <src path="${src.dir}"/>
+         <classpath refid="master-classpath"/>
+      </javac>
+   </target>
+
+   <target name="deploy" depends="build" description="Deploy application">
+      <copy todir="${deploy.path}/${name}"
+         preservelastmodified="true">
+         <fileset dir="${web.dir}">
+            <include name="**/*.*"/>
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="deploywar" depends="build" description="Deploy application as a WAR file">
+      <war destfile="${name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+         <fileset dir="${web.dir}">
+            <include name="**/*.*"/>
+         </fileset>
+      </war>
+
+      <copy todir="${deploy.path}" preservelastmodified="true">
+         <fileset dir="">
+            <include name="*.war"/>
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="clean" description="Clean output directories">
+      <delete>
+         <fileset dir="${build.dir}">
+            <include name="**/*.class"/>
+         </fileset>
+      </delete>
+   </target>
+
+   <!-- ============================================================ -->
+   <!-- Tomcat task -->
+   <!-- ============================================================ -->
+
+    <path id="catalina-ant-classpath">
+    <!-- We need the Catalina jars for Tomcat -->
+    <!--  * for gradle.test_other0 app servers - check the docs -->
+       <fileset dir="${appserver.lib}">
+          <include name="catalina-ant.jar"/>
+       </fileset>
+    </path>
+
+    <taskdef name="install" classname="org.apache.catalina.ant.InstallTask">
+       <classpath refid="catalina-ant-classpath"/>
+    </taskdef>
+    <taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask">
+       <classpath refid="catalina-ant-classpath"/>
+    </taskdef>
+    <taskdef name="list" classname="org.apache.catalina.ant.ListTask">
+       <classpath refid="catalina-ant-classpath"/>
+    </taskdef>
+    <taskdef name="start" classname="org.apache.catalina.ant.StartTask">
+       <classpath refid="catalina-ant-classpath"/>
+    </taskdef>
+    <taskdef name="stop" classname="org.apache.catalina.ant.StopTask">
+       <classpath refid="catalina-ant-classpath"/>
+    </taskdef>
+
+    <target name="reload" description="Reload application in Tomcat">
+       <reload url="${tomcat.manager.url}"username="${tomcat.manager.username}"
+          password="${tomcat.manager.password}" path="/${name}"/>
+    </target>
+    <!--
+    重载任务需要下列附加参数：
+    管理应用程序的URL
+    重启web应用程序的用户名
+    重启web应用程序的密码
+    重启的web应用程序的名字
+    -->
+</project/>
+
+<!--
+appserver.home 指向Tomcat服务器的安装路径。
+appserver.lib 指向Tomcat服务器的安装文件下的库文件。
+deploy.path 变量当前指向Tomcat的web应用程序文件夹。
+-->
+
+
+<!--
+catalina-AntTask.jar  若要通过Apache Ant来运行Tomcat， 这个jar文件是必须的
+catalina-AntTask.jar 提供了下述的任务：
+属性  描述
+InstallTask 安装一个 web 应用程序。 类名字为： org.apache.catalina.AntTask.InstallTask
+ReloadTask  重新安装一个 web 应用程序。类名字为： org.apache.catalina.AntTask.ReloadTask
+ListTask    列出所有的 web 应用程序。类名字为： Class Name: org.apache.catalina.AntTask.ListTask
+StartTask   启动一个 web 应用程序。类名字为： org.apache.catalina.AntTask.StartTask
+StopTask    停止一个 web 应用程序。类名字为： org.apache.catalina.AntTask.StopTask
+ReloadTask  重新加载一个无需停止的 web 应用程序。类名字为：org.apache.catalina.AntTask.ReloadTask
+
+
+ 执行： AntTask deploy-war
+        AntTask reload
+-->
+

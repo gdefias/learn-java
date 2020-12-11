@@ -1,0 +1,94 @@
+<?xml version = "1.0"?>
+<!--打包一个应用程序以及将其部署到一个文件夹中-->
+<project name = "fax" basedir = "" default = "usage">
+   <property file = "build2.properties"/>
+   <property name = "src.dir" value = "src"/>
+   <property name = "web.dir" value = "war"/>
+   <property name = "javadoc.dir" value = "doc"/>
+   <property name = "gradle.Base.build.dir" value = "${web.dir}/WEB-INF/classes"/>
+   <property name = "name" value = "fax"/>
+
+   <path id = "master-classpath">
+      <fileset dir = "${web.dir}/WEB-INF/lib">
+         <include name = "*.jar"/>
+      </fileset>
+      <pathelement path = "${build.dir}"/>
+   </path>
+
+   <target name = "javadoc">
+      <javadoc packagenames = "faxapp.*" sourcepath = "${src.dir}"
+         destdir = "doc" version = "true" windowtitle = "Fax Application">
+
+         <doctitle><![CDATA[<h1> =  Fax Application  = </h1>]]>
+         </doctitle>
+
+         <bottom><![CDATA[Copyright ? 2011. All Rights Reserved.]]>
+         </bottom>
+
+         <group title = "util packages" packages = "faxapp.util.*"/>
+         <group title = "web packages" packages = "faxapp.web.*"/>
+         <group title = "data packages" packages = "faxapp.entity.*:faxapp.dao.*"/>
+      </javadoc>
+   </target>
+
+   <target name = "usage">
+      <echo message = ""/>
+      <echo message = "${name} gradle.Base.build file"/>
+      <echo message = "-----------------------------------"/>
+      <echo message = ""/>
+      <echo message = "Available targets are:"/>
+      <echo message = ""/>
+      <echo message = "deploy    --> Deploy application as directory"/>
+      <echo message = "deploywar --> Deploy application as a WAR file"/>
+      <echo message = ""/>
+   </target>
+
+   <target name = "gradle.Base.build" description = "Compile main source tree java files">
+      <mkdir dir = "${build.dir}"/>
+
+      <javac destdir = "${build.dir}" source = "1.5" target = "1.5" debug = "true"
+         deprecation = "false" optimize = "false" failonerror = "true">
+
+         <src path = "${src.dir}"/>
+         <classpath refid = "master-classpath"/>
+
+      </javac>
+   </target>
+
+   <target name = "deploy" depends = "build" description = "Deploy application">  <!--将文件从web目录复制到部署目录，并保存最后修改日期时间戳-->
+      <copy todir = "${deploy.path}/${name}" preservelastmodified = "true">
+
+         <fileset dir = "${web.dir}">
+            <include name = "**/*.*"/>
+         </fileset>
+
+      </copy>
+   </target>
+
+   <target name = "deploywar" depends = "build" description = "Deploy application as a WAR file">
+    <!--构建war文件,然后将war 文件复制到应用程序服务器的部署目录-->
+
+      <war destfile = "${name}.war" webxml = "${web.dir}/WEB-INF/web.xml">
+         <fileset dir = "${web.dir}">
+            <include name = "**/*.*"/>
+         </fileset>
+      </war>
+
+      <copy todir = "${deploy.path}" preservelastmodified = "true">
+         <fileset dir = "">
+            <include name = "*.war"/>
+         </fileset>
+      </copy>
+
+   </target>
+
+   <target name = "clean" description = "Clean output directories">  <!--清除所有之前的构建文件-->
+      <delete>
+         <fileset dir = "${build.dir}">
+            <include name = "**/*.class"/>
+         </fileset>
+      </delete>
+   </target>
+
+</project>
+

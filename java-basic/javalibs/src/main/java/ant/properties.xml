@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 用于存放.class文件和编译好的项目 -->
+<property name="gradle.Base.build.dir" location="gradle.Base.build"/>
+<!-- 用来存放jar包 -->
+<property name="lib.dir" location="lib"/>
+<!-- 用来存放打包后的项目 -->
+<property name="dist.dir" location="dist"/>
+<property name="dist.version" value="1.0"/>
+<property name="webapp.name" value="MyAntTest"/>
+<property name="compile.debug" value="true"/>
+<property name="compile.deprecation" value="false"/>
+<property name="compile.optimize" value="false"/>
+
+<path id="compile.classpath">
+    <fileset dir="${lib.dir}">
+        <include name="**/*.jar"/>
+        <include name="**/*.zip"/>
+    </fileset>
+</path>

@@ -1,0 +1,41 @@
+<target name="gradle.Base.build-war">
+
+   <war destfile="fax.war" webxml="${web.dir}/web.xml">
+      <fileset dir="${web.dir}/WebContent">
+         <include name="**/*.*"/>
+      </fileset>
+
+      <lib dir="thirdpartyjars">
+         <exclude name="portlet.jar"/>
+      </lib>
+
+      <classes dir="${gradle.Base.build.dir}/web"/>
+   </war>
+
+</target>
+
+
+
+<!--
+WAR任务是JAR任务的一个扩展，JAR任务的所有的属性都适用于WAR任务
+属性          描述
+webxml      web.xml文件的路径
+lib         指定什么文件可以进入WEB-INF\lib文件夹的一个组
+classes     指定什么文件可以进入WEB-INF\classes文件夹的一个组
+metainf     指定生成MANIFEST.MF文件的指令
+
+
+执行：AntTask gradle.Base.test_depends-war   创建fax.war文件
+
+war文件的内容：
+>fax.war:
+   >+---jsp ：这个文件夹包含了jsp文件
+   >+---css ：这个文件夹包含了stylesheet文件
+   >+---js ：这个文件夹包含了javascript文件
+   >+---images：这个文件夹包含了image文件
+   >+---META-INF：这个文件夹包含了Manifest.Mf
+   >+---WEB-INF
+           >+---classes ：这个文件夹包含了编译好的类
+          >+---lib ：第三方库和使用程序jar文件
+          >WEB.xml ：定义WAR包的配置文件
+-->

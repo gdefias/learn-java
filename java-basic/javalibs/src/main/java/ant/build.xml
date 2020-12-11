@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<project name="Hello World Project" default="info">      <!--项目的名称  默认运行的目标-->
+
+   <target name="info">     <!--一个目标 (target) 是一系列想运行的任务 (task)-->
+      <echo>Hello World - Welcome to Apache Ant!</echo>
+   </target>
+
+</project>
+
+<!--
+执行： AntTask 或 AntTask -f test_propertyfile.xml
+
+关于构建文件：
+● 所有构建文件都要有<project>元素，而且至少有一个<target> 元素
+● 对于<project> 元素的default 属性并不一定需要默认值
+● 构建文件并不一定要被命名为build.xml。不过build.xml 是ant 要搜索的默认文件名
+● 每个构建文件只能有一个<project> 元素
+
+
+关于project节点元素：
+● project元素是 Ant 构件文件的根元素， Ant 构件文件至少应该包含一个 project 元素，否则会发生错误。在每个 project 元素下，可包含多个 target 元素。接下来向读者展示一下 project 元素的各属性。
+● name属性：用于指定 project 元素的名称。
+● default属性：用于指定 project 默认执行时所执行的 target 的名称。
+● basedir属性：用于指定基路径的位置。该属性没有指定时，使用 Ant 的构件文件的目录作为基准目录。
+
+
+关于target节点元素：
+target为ant的基本执行单元或是任务，它可以包含一个或多个具体的单元/任务。多个target 可以存在相互依赖关系。它有如下属性：
+● name 属性：指定 target 元素的名称，这个属性在一个 project 元素中是唯一的。我们可以通过指定 target 元素的名称来指定某个 target 。
+● depends 属性：用于描述 target 之间的依赖关系，若与多个 target 存在依赖关系时，需要以“,”间隔。 Ant 会依照 depends 属性中 target 出现的顺序依次执行每个 target ，被依赖的target 会先执行。
+● if 属性：用于验证指定的属性是存在，若不存在，所在 target 将不会被执行。
+● unless 属性：该属性的功能与 if 属性的功能正好相反，它也用于验证指定的属性是否存在，若不存在，所在 target 将会被执行。
+● description 属性：该属性是关于 target 功能的简短描述和说明。
+
+
+常用执行命令：
+AntTask    在当前目录下的build.xml运行Ant，执行缺省的target
+
+AntTask -buildfile gradle.Base.test_taskdepends1-Test.xml    在当前目录下的build-test.xml运行Ant，执行缺省的target
+
+AntTask -buildfile gradle.Base.test_taskdepends1-Test.xml clean   在当前目录下的build-test.xml运行Ant，执行一个叫做clean的target
+
+AntTask -buildfile gradle.Base.test_taskdepends1-Test.xml -Dbuild=gradle.Base.test_taskdepends1/classes clean  在当前目录下的build-test.xml运行Ant，执行一个叫做clean的target，并设定build属性的值为build/classes
+
+
+ant命令行参数：
+-help  -h
+显示描述ant 命令及其选项的帮助信息
+
+-projecthelp  -p
+显示包含在构建文件中的、所有用户编写的帮助文档。即为各个<target>中description 属性的文本，以及包含在<description>元素中的任何文本。将有description 属性的目标列为主目标（Main target），没有此属性的目标则列为子目标（Subtarget）。
+
+-version
+要求ant 显示其版本信息，然后退出。
+
+-quiet  -q
+抑制并非由构建文件中的echo 任务所产生的大多数消息。
+
+-verbose  -v
+显示构建过程中每个操作的详细消息。此选项与-debug 选项只能选其一。
+
+-debug  -d
+显示Ant 和任务开发人员已经标志为调试消息的消息。此选项与-verbose 只能选其一。
+
+-emacs  -e
+对日志消息进行格式化，使它们能够很容易地由Emacs 的shell 模式（shellmode）所解析；也就是说，打印任务事件，但并不缩排，在其之前也没有[taskname]。
+
+-logfile filename     -l
+将日志输出重定向到指定文件。
+
+-logger classname
+指定一个类来处理Ant 的日志记录。所指定的类必须实现了org.apache.tools.AntTask.BuildLogger 接口。
+
+-listener classname
+为Ant 声明一个监听类，并增加到其监听者列表中。在Ant与IDE或其他Java程序集成时，此选项非常有用。可以阅读第六章以了解有关监听者的更多信息。必须将所指定的监听类编写为可以处理Ant 的构建消息接发。
+
+-buildfile filename     -file   -f
+指定Ant 需要处理的构建文件。默认的构建文件为build.xml。
+
+-Dproperty=value
+在命令行上定义一个特性名－值对。
+
+-find filename
+指定Ant应当处理的构建文件。与-buildfile选项不同，如果所指定文件在当前目录中未找到，-find就要求Ant在其父目录中再进行搜索。这种搜索会继续在其祖先目录中进行，直至达到文件系统的根为止，在此如果文件还未找到，则构建失败。
+
+-atuoproxy jdk1.5以上的可以使用代理设置
+-nouserlib 运行ant时不使用用户lib中的jar包
+-nice 设计主线程优先级
+-logfile 使用指定的log日志
+-noinput 不允许交互输入
+-keep-going, -k 执行不依赖于所有目标
+-propertyfile 加载所有属性配置文件 -d 属性文件优先
+
+
+-->

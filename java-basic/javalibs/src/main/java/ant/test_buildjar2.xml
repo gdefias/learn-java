@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<project name ="javacTest" default="jar" basedir=".">
+    <target name="clean">
+        <delete dir="${basedir}/build"/>
+    </target>
+
+    <target name="compile"  depends ="clean">
+        <mkdir dir ="${basedir}/build/classes"/>
+        <javac srcdir ="${basedir}/src" destdir ="${basedir}/build/classes"/>
+    </target>
+
+    <target name="run"  depends="compile">
+        <java classname ="HelloWorld">
+            <classpath>
+                <pathelement path="${basedir}/build/classes"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="jar" depends="run">
+        <jar destfile="helloworld.jar" basedir="${basedir}/build/classes">
+            <manifest>
+                <attribute name="Main-class" value="HelloWorld"/>
+            </manifest>
+        </jar>
+    </target >
+</project>
+
+<!--
+关于java标签节点元素：
+该标签用来执行编译生成的.class文件，其属性如下
+● classname 表示将执行的类名。
+● jar表示包含该类的JAR文件名。
+● classpath所表示用到的类路径。
+● fork表示在一个新的虚拟机中运行该类。
+● failonerror表示当出现错误时自动停止。
+● output 表示输出文件。
+● append表示追加或者覆盖默认文件。
+
+-->

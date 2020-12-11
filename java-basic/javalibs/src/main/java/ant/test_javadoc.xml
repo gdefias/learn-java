@@ -1,0 +1,23 @@
+<target name = "generate-javadoc">
+   <javadoc packagenames="faxapp.*" sourcepath="${src.dir}"
+      destdir = "doc" version = "true" windowtitle = "Fax Application">
+
+      <doctitle><![CDATA[= Fax Application =]]></doctitle>
+
+      <bottom>
+         <![CDATA[Copyright © 2011. All Rights Reserved.]]>
+      </bottom>
+
+      <group title = "util packages" packages = "faxapp.util.*"/>
+      <group title = "web packages" packages = "faxapp.web.*"/>
+      <group title = "data packages" packages = "faxapp.entity.*:faxapp.dao.*"/>
+   </javadoc>
+
+   <echo message = "java doc has been generated!" />
+</target>
+
+
+
+<!--
+AntTask generate-javadoc
+-->

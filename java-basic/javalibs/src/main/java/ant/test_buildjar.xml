@@ -1,0 +1,31 @@
+<target name="gradle.Base.build-jar">
+   <jar destfile="${web.dir}/lib/util.jar"
+      basedir="${gradle.Base.build.dir}/classes"
+      includes="faxapp/util/**"
+      excludes="**/Test.class">
+
+      <manifest>   <!--使util.jar成为可执行文件-->
+         <attribute name="Main-Class" value="com.tutorialspoint.util.FaxUtil"/>
+      </manifest>
+
+   </jar>
+</target>
+
+
+<!--
+jar任务中常用的属性如下所示：
+属性          描述
+basedir     表示输出JAR文件的基目录。默认情况下，为项目的基目录
+compress    表示告知Ant对于创建的JAR文件进行压缩
+keepcompression 表示project基目录的绝对路径
+destfile    表示输出JAR文件的名字
+duplicate   表示发现重复文件时Ant执行的操作。可以是添加、保存、或者是使该重复文件失效
+excludes    表示移除的文件列表，列表中使用逗号分隔多个文件。
+excludesfile    与上同，但是使用模式匹配的方式排除文件
+inlcudes        与excludes正好相反。
+includesfile    表示在被归档的文件模式下，打包文件中已有的文件。与 excludesfile 相反
+update      表示告知Ant重写已经建立的JAR文件
+
+执行：AntTask gradle.Base.test_depends-jar   #创建出util.jar
+
+-->

@@ -1,3 +1,25 @@
+.cachedir
+.externalToolBuilders
+.settings
+.project
+.classpath
+.project
+.checkstyle
+.clover
+.idea
+target/
+~$*
+/Servers
+/.metadata
+.DS_Store
+/deploy-core.bat
+/complexity_result.html
+/loc_result.html
+/resources/perftest*
+*.iml
+/atlassian-ide-plugin.xml
+src/main/generated/
+
 # Compiled class file
 *.class
 

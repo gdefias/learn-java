@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+src.dir 表示项目的源文件目录，也就是存储java文件的地方
+web.dir 表示项目的web文件目录，也就是存储JSPs文件，web.xml，css，javascript以及其它与web相关的文件的地方
+gradle.Base.test_depends.dir 表示项目的输出文件目录
+-->
+<project name="fax" basedir="" default="build">
+   <property name="src.dir" value="src"/>
+   <property name="web.dir" value="war"/>
+   <property name="gradle.Base.build.dir" value="${web.dir}/WEB-INF/classes"/>
+   <property name="name" value="fax"/>
+
+   <path id="master-classpath">   <!--控制类路径 (master-classpath) 保存类路径的相关信息-->
+      <fileset dir="${web.dir}/WEB-INF/lib">
+         <include name="*.jar"/>
+      </fileset>
+      <pathelement path="${build.dir}"/>
+   </path>
+
+   <target name="gradle.Base.build" description="Compile source tree java files">
+      <mkdir dir="${build.dir}"/>  <!--创建一个构建目录-->
+      <javac destdir="${build.dir}" source="1.5" target="1.5" debug="true"
+      deprecation="false" optimize="false" failonerror="true">
+         <src path="${src.dir}"/>
+         <classpath refid="master-classpath"/>
+      </javac>
+   </target>
+
+   <target name="clean" description="Clean output directories">
+      <delete>  <!--删除构建文件夹中的所有.class文件-->
+         <fileset dir="${build.dir}">
+            <include name="**/*.class"/>
+         </fileset>
+      </delete>
+   </target>
+</project>
+
+
+<!--
+关于javac标签节点元素:
+该标签用于编译一个或一组java文件，其属性如下
+srcdir表示源程序的目录。
+include表示被编译的文件的模式。
+classpath表示所使用的类路径。
+verbose 表示提供详细的输出信息。
+bootclasspath：编译过程中需要导入class文件会被导入
+bootclasspathref：编译过程中需要引用的class文件夹目录
+classpathref：文件夹中class文件会被引用的jar包
+compiler	：指定要使用的编译器。如果未设置该特性，将使用 gradle.Base.build.compiler 属性的值（如果设置）。否则，将使用当前 VM 的默认编译器。
+例子：设置环境变量 JIKESHOME 为 jikes 的路径
+设置 ANT_OPTS=-Dbuild.compiler=jikes
+将 jikes 路径添加到系统 PATH 中
+然后在所有的ant任务就默认使用 jikes 了, 如果你想在单个工程中使用 AntTask, 就不要添加 ANT_OPTS 环境变量, 只需要修改 gradle.Base.build.xml 中 javac 标签中的 compiler 为 jikes
+debug：	当值未为true时产生调试信息
+debuglevel：	相当于命令行中要追加到 -g 命令行开关后面的关键字列表。这将会被除 modern 和 classic(ver >= 1.2) 以外的所有实现忽略。合法值是 none 或下列关键字的逗号分隔列表：lines、vars 和 source。如果不指定 debuglevel，则默认情况下，将不会在 -g 的后面追加任何关键字。如果不打开 debug，该特性将被忽略。
+depend：	这个任务依赖的任务。当运行这个任务时，首先按照顺序依次执行完依赖的任务，如果出错将停止执行
+deprecation：	假如为真，将会给出不建议使用的API，默认值false
+destdir：	编译后文件存放的目标文件夹，默认是当前文件夹。
+encoding：指定编码格式
+excludes	：必须排除的文件模式的列表，以逗号或空格分隔。如果忽略，将不会排除任何文件（默认排除的文件除外）。
+excludesfile：	该文件的每一行都将作为一个 exclude 模式。
+extdirs:	Specifies an alternative location of installed extensions that overrides the default.
+failonerror:	指定 clientgen Ant 任务在出现错误的情况下是否继续执行。 此特性的有效值为 True 或 False。默认值为 True，这意味着即使遇到错误也要继续执行。
+fork:	为true时在外部启用一个新的JDK 编译器进程执行编译。默认值是true,应用在需要配置编译器运行时环境时
+includeantruntime	:指出是否应在类路径中包括 Ant 运行时程序库，默认为 yes。
+includejavaruntime:	指出是否应在类路径中包括来自执行 VM 的默认运行时程序库，默认为 no。
+includes:	必须包括的文件模式的列表，以逗号或空格分隔。如果忽略，将包括所有文件。
+includesfile:	文件名。该文件的每一行都将作为一个 include 模式。
+listfiles:	为真时显示被编译文件列表，默认为false
+memoryinitialsize	如果 javac 在外部运行，则是底层 VM 的初始内存大小；否则将被忽略。默认为标准 VM 内存设置。（例如：83886080、81920k 或 80m）
+memorymaximumsize:	如果 javac 在外部运行，则是底层 VM 的最大内存大小；否则将被忽略。默认为标准 VM 内存设置。（例如：83886080、81920k 或 80m）
+nowarn:	为真时将忽略所有警告信息
+optimize:	指出是否应该用优化方式编译源代码，默认为 off。
+source：	假如设置为1.4,将激活断言。默认是1.3
+sourcepath:	指定源资源文件夹。默认指向srcdir
+sourcepathref:	指定你想引用资源
+target:	Specifies the VM version to generate class files for (for example, 1.1 or 1.3).
+-->

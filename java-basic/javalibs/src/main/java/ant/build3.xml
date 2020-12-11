@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE project [<!ENTITY properties SYSTEM "./properties.xml">]>  <!--引用属性文件-->
+<project name="MySSHTest" basedir="." default="war-prepare">
+    &properties;
+
+    <!-- 版本构建时间 -->
+    <tstamp>
+        <format property="version.date" pattern="yyyy-MM-dd HH:mm:ss"/>
+    </tstamp>
+
+    <!-- 编译项目 -->
+    <target name="compile" description="compile javaFile">
+        <echo level="info">Compiling...</echo>
+        <mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="src"
+               destdir="${build.dir}/classes"
+               debug="${compile.debug}"
+               deprecation="${compile.deprecation}"
+               optimize="${compile.optimize}"
+               classpathref="compile.classpath"/>
+    </target>
+
+    <!-- 将编译后的项目打成jar包 -->
+    <target name="jar" depends="compile" description="package JAR">
+        <jar destfile="${dist.dir}/${webapp.name}-${dist.version}.jar">
+            <manifest>
+                <attribute name="Created-Time" value="${version.date}"/>
+                <!--<attribute name="Class-Path" value="${webapp.name}-${dist.version}.jar"/>-->
+            </manifest>
+            <fileset dir="${build.dir}/classes"/>
+        </jar>
+
+    </target>
+
+    <!-- 生成可以调试的项目 -->
+    <target name="war-prepare" depends="jar" description="prepare WAR">
+        <mkdir dir="${build.dir}/${webapp.name}"/>
+        <!-- 复制web目录到调试文件夹 -->
+        <copy overwrite="true" todir="${build.dir}/${webapp.name}">
+            <fileset dir="WebContent">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <!-- 复制hibernate的xml配置文件到classes文件夹 -->
+        <copy overwrite="true" todir="${build.dir}/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <!-- 复制jar包到调试文件夹 -->
+        <copy overwrite="true" todir="${build.dir}/${webapp.name}/WEB-INF/lib">
+            <fileset dir="${lib.dir}">
+                <include name="**"/>
+            </fileset>
+        </copy>
+
+        <!-- 复制classes文件夹到调试文件夹 -->
+        <copy overwrite="true" todir="${build.dir}/${webapp.name}/WEB-INF/classes">
+            <fileset dir="${build.dir}/classes/">
+            </fileset>
+        </copy>
+
+    </target>
+
+    <!-- 将项目打成war包 -->
+    <target name="war" description="package WAR">
+        <war destfile="${dist.dir}/${webapp.name}.war"
+             webxml="${build.dir}/${webapp.name}/WEB-INF/web.xml" compress="true">
+            <fileset dir="${build.dir}/${webapp.name}" includes="**/*.*" excludes="**/web.xml"/>
+        </war>
+    </target>
+
+    <!-- 清空项目生成文件（gradle.Base.build,dist） -->
+    <target name="clean" description="Destroys all generated files of the dirs.">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project name="Hello World Project" default="info">
+
+   <property name="sitename" value="www.tutorialspoint.com"/>   <!--可以使用property元素定义一些额外的属性-->
+   <target name="info">
+      <echo>Apache Ant version is ${ant.version} - You are at ${sitename}</echo>
+   </target>
+
+</project>
+
+
+<!--
+关于property属性节点元素：
+property元素可看作参量或者参数的定义，project 的属性可以通过 property 元素来设定，也可在 Ant 之外设定。若要在外部引入某文件，例如 gradle.Base.test_taskdepends1.properties 文件，可以通过如下内容将其引：
+<property file="gradle.Base.test_taskdepends1.properties"/>
+property 元素可用作 task 的属性值。在 task 中是通过将属性名放在${属性名}之间，并放在 task 属性值的位置来实现的。
+Ant 提供了一些内置的属性，它能得到的系统属性的列表与 Java 文档中 System.getProperties() 方法得到的属性一致，这些系统属性可参考 sun 网站的说明。同时， Ant 还提供了一些它自己的内置属性，如下：
+basedir： project 基目录的绝对路径；
+AntTask.file： buildfile的绝对路径，上例中ant.file值为D:\Workspace\AntExample\gradle.Base.test_taskdepends1；
+AntTask.version： Ant 的版本信息，本文为1.8.1 ；
+AntTask.project.name： 当前指定的project的名字，即前文说到的project的name属性值；
+AntTask.java.version： Ant 检测到的JDK版本，本文为 1.6
+
+
+
+
+
+默认情况下，Ant提供以下预定义的属性，这些属性都是可以在构建文件中使用的：
+属性          解释
+==============================================================================
+AntTask.file    该构建文件的完整地址
+AntTask.version     安装的Apache Ant的版本
+basedir     构建文件的基目录的绝对路径，作为 **project** 元素的 **basedir** 属性
+AntTask.java.version    Ant使用的JAVA语言的软件开发工具包的版本
+AntTask.project.name    项目的名字，具体声明为 **project** 元素的 **name** 属性
+AntTask.project.default-target  当前项目的默认目标
+AntTask.project.invoked-targets 在当前项目中被调用的目标的逗号分隔列表
+AntTask.core.lib    Ant的jar文件的完整的地址
+AntTask.home    Ant安装的主目录
+AntTask.library.dir Ant库文件的主目录，特别是ANT_HOME/lib文件夹
+
+-->

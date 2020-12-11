@@ -1,0 +1,252 @@
+2018-06-28 11:27:06  [ main:0 ] - [ INFO ]  MLog clients using log4j logging.
+2018-06-28 11:27:08  [ main:1232 ] - [ INFO ]  Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2018-06-28 11:27:08  [ main:1270 ] - [ DEBUG ]  MBean: com.mchange.v2.c3p0:type=PooledDataSource[2sbshw9wizj4z6xz4d6f|5ccd43c2] registered.
+2018-06-28 11:27:08  [ main:1438 ] - [ DEBUG ]  incremented pending_acquires: 1
+2018-06-28 11:27:08  [ main:1439 ] - [ DEBUG ]  incremented pending_acquires: 2
+2018-06-28 11:27:08  [ main:1440 ] - [ DEBUG ]  incremented pending_acquires: 3
+2018-06-28 11:27:08  [ main:1442 ] - [ DEBUG ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 config: [start -> 3; min -> 3; max -> 15; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2018-06-28 11:27:08  [ main:1447 ] - [ INFO ]  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2sbshw9wizj4z6xz4d6f|5ccd43c2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2sbshw9wizj4z6xz4d6f|5ccd43c2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:1447 ] - [ DEBUG ]  An exception occurred while acquiring a poolable resource. Will retry.
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:119)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:143)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:132)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:1447 ] - [ DEBUG ]  An exception occurred while acquiring a poolable resource. Will retry.
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:119)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:143)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:132)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:1447 ] - [ DEBUG ]  An exception occurred while acquiring a poolable resource. Will retry.
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:119)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:143)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:132)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:27:08  [ main:1448 ] - [ DEBUG ]  BeanUtils.populate(com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2sbshw9wizj4z6xz4d6f|5ccd43c2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2sbshw9wizj4z6xz4d6f|5ccd43c2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ], {initialPoolSize=2, jdbcUrl=jdbc:mysql://localhost:3306/test, datasource=com.mchange.v2.c3p0.ComboPooledDataSource, maxPoolSize=100, maxIdleTime=300, maxStatements=1000, user=haixia.zhang02, checkoutTimeout=5000, driverClass=com.mysql.jdbc.Driver, acquireIncrement=2, password=123456, minPoolSize=2})
+2018-06-28 11:27:08  [ main:1490 ] - [ DEBUG ]  Convert string '2' to class 'int'
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:1502 ] - [ WARN ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 -- Concurrency unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Concurrency.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:1503 ] - [ DEBUG ]  decremented pending_acquires: 2
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:1503 ] - [ WARN ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 -- Concurrency unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Concurrency.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:1504 ] - [ WARN ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 -- Concurrency unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Concurrency.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:1505 ] - [ DEBUG ]  decremented pending_acquires: 1
+2018-06-28 11:27:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:1505 ] - [ DEBUG ]  decremented pending_acquires: 0
+2018-06-28 11:27:08  [ main:1506 ] - [ DEBUG ]  Convert string 'jdbc:mysql://localhost:3306/test' to class 'java.lang.String'
+2018-06-28 11:27:08  [ main:1509 ] - [ DEBUG ]  Convert string '100' to class 'int'
+2018-06-28 11:27:08  [ main:1509 ] - [ DEBUG ]  Convert string '300' to class 'int'
+2018-06-28 11:27:08  [ main:1510 ] - [ DEBUG ]  Convert string '1000' to class 'int'
+2018-06-28 11:27:08  [ main:1510 ] - [ DEBUG ]  Convert string 'haixia.zhang02' to class 'java.lang.String'
+2018-06-28 11:27:08  [ main:1511 ] - [ DEBUG ]  Convert string '5000' to class 'int'
+2018-06-28 11:27:08  [ main:1512 ] - [ DEBUG ]  Convert string 'com.mysql.jdbc.Driver' to class 'java.lang.String'
+2018-06-28 11:27:08  [ main:1514 ] - [ DEBUG ]  Convert string '2' to class 'int'
+2018-06-28 11:27:08  [ main:1515 ] - [ DEBUG ]  Convert string '123456' to class 'java.lang.String'
+2018-06-28 11:27:08  [ main:1515 ] - [ DEBUG ]  Convert string '2' to class 'int'
+2018-06-28 11:27:08  [ main:1531 ] - [ DEBUG ]  incremented pending_acquires: 1
+2018-06-28 11:27:08  [ main:1532 ] - [ DEBUG ]  incremented pending_acquires: 2
+2018-06-28 11:27:08  [ main:1532 ] - [ DEBUG ]  com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 config: [start -> 2; min -> 2; max -> 100; inc -> 2; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 300000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 75000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2018-06-28 11:27:08  [ main:1552 ] - [ INFO ]  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 5000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2sbshw9wizj4z6xz4d6f|5ccd43c2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2sbshw9wizj4z6xz4d6f|5ccd43c2, idleConnectionTestPeriod -> 0, initialPoolSize -> 2, jdbcUrl -> jdbc:mysql://localhost:3306/test, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 1000, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2018-06-28 11:27:08  [ main:1555 ] - [ DEBUG ]  acquire test -- pool size: 0; target_pool_size: 2; desired target? 1
+2018-06-28 11:27:08  [ main:1555 ] - [ DEBUG ]  awaitAvailable(): [unknown]
+2018-06-28 11:27:08  [ main:1555 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 0, unused: 0, excluded: 0]
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:3106 ] - [ DEBUG ]  checkinAll(): com.mchange.v2.c3p0.stmt.GlobalMaxOnlyStatementCache stats -- total size: 0; checked out: 0; num connections: 0; num keys: 0
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:3107 ] - [ DEBUG ]  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@5f1b4328.acquireResource() returning. 
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:3107 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 1, unused: 1, excluded: 0]
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:3107 ] - [ DEBUG ]  decremented pending_acquires: 1
+2018-06-28 11:27:10  [ main:3107 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3720b579)
+2018-06-28 11:27:10  [ main:3119 ] - [ DEBUG ]  cxnStmtMgr.statementSet( com.mysql.jdbc.JDBC4Connection@339bc0c9 ).size(): 1
+2018-06-28 11:27:10  [ main:3120 ] - [ DEBUG ]  checkoutStatement: com.mchange.v2.c3p0.stmt.GlobalMaxOnlyStatementCache stats -- total size: 1; checked out: 1; num connections: 1; num keys: 1
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3134 ] - [ DEBUG ]  checkinAll(): com.mchange.v2.c3p0.stmt.GlobalMaxOnlyStatementCache stats -- total size: 1; checked out: 1; num connections: 1; num keys: 1
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3135 ] - [ DEBUG ]  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@5f1b4328.acquireResource() returning. 
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3135 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3720b579)
+2018-06-28 11:27:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3135 ] - [ DEBUG ]  decremented pending_acquires: 0
+2018-06-28 11:32:06  [ main:0 ] - [ INFO ]  MLog clients using log4j logging.
+2018-06-28 11:32:07  [ main:1146 ] - [ INFO ]  Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2018-06-28 11:32:07  [ main:1176 ] - [ DEBUG ]  MBean: com.mchange.v2.c3p0:type=PooledDataSource[2sbshw9wizpk9q1fhladj|5ccd43c2] registered.
+2018-06-28 11:32:08  [ main:1332 ] - [ DEBUG ]  incremented pending_acquires: 1
+2018-06-28 11:32:08  [ main:1333 ] - [ DEBUG ]  incremented pending_acquires: 2
+2018-06-28 11:32:08  [ main:1334 ] - [ DEBUG ]  incremented pending_acquires: 3
+2018-06-28 11:32:08  [ main:1336 ] - [ DEBUG ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 config: [start -> 3; min -> 3; max -> 15; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2018-06-28 11:32:08  [ main:1341 ] - [ INFO ]  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2sbshw9wizpk9q1fhladj|5ccd43c2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2sbshw9wizpk9q1fhladj|5ccd43c2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:1341 ] - [ DEBUG ]  An exception occurred while acquiring a poolable resource. Will retry.
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:119)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:143)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:132)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:1341 ] - [ DEBUG ]  An exception occurred while acquiring a poolable resource. Will retry.
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:119)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:143)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:132)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:1341 ] - [ DEBUG ]  An exception occurred while acquiring a poolable resource. Will retry.
+java.sql.SQLException: No suitable driver
+	at java.sql.DriverManager.getDriver(DriverManager.java:315)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.driver(DriverManagerDataSource.java:223)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:119)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:143)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:132)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:32:08  [ main:1342 ] - [ DEBUG ]  BeanUtils.populate(com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2sbshw9wizpk9q1fhladj|5ccd43c2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2sbshw9wizpk9q1fhladj|5ccd43c2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ], {initialPoolSize=2, jdbcUrl=jdbc:mysql://localhost:3306/test, datasource=com.mchange.v2.c3p0.ComboPooledDataSource, maxPoolSize=100, maxIdleTime=300, maxStatements=1000, user=haixia.zhang02, checkoutTimeout=5000, driverClass=com.mysql.jdbc.Driver, acquireIncrement=2, password=123456, minPoolSize=2})
+2018-06-28 11:32:08  [ main:1398 ] - [ DEBUG ]  Convert string '2' to class 'int'
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:1411 ] - [ WARN ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 -- Concurrency unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Concurrency.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:1411 ] - [ DEBUG ]  decremented pending_acquires: 2
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:1411 ] - [ WARN ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 -- Concurrency unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Concurrency.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:32:08  [ main:1413 ] - [ DEBUG ]  Convert string 'jdbc:mysql://localhost:3306/test' to class 'java.lang.String'
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:1412 ] - [ WARN ]  com.mchange.v2.resourcepool.BasicResourcePool@60addb54 -- Concurrency unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Concurrency.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:1414 ] - [ DEBUG ]  decremented pending_acquires: 1
+2018-06-28 11:32:08  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:1414 ] - [ DEBUG ]  decremented pending_acquires: 0
+2018-06-28 11:32:08  [ main:1417 ] - [ DEBUG ]  Convert string '100' to class 'int'
+2018-06-28 11:32:08  [ main:1417 ] - [ DEBUG ]  Convert string '300' to class 'int'
+2018-06-28 11:32:08  [ main:1417 ] - [ DEBUG ]  Convert string '1000' to class 'int'
+2018-06-28 11:32:08  [ main:1418 ] - [ DEBUG ]  Convert string 'haixia.zhang02' to class 'java.lang.String'
+2018-06-28 11:32:08  [ main:1418 ] - [ DEBUG ]  Convert string '5000' to class 'int'
+2018-06-28 11:32:08  [ main:1418 ] - [ DEBUG ]  Convert string 'com.mysql.jdbc.Driver' to class 'java.lang.String'
+2018-06-28 11:32:08  [ main:1418 ] - [ DEBUG ]  Convert string '2' to class 'int'
+2018-06-28 11:32:08  [ main:1418 ] - [ DEBUG ]  Convert string '123456' to class 'java.lang.String'
+2018-06-28 11:32:08  [ main:1418 ] - [ DEBUG ]  Convert string '2' to class 'int'
+2018-06-28 11:32:08  [ main:1445 ] - [ DEBUG ]  incremented pending_acquires: 1
+2018-06-28 11:32:08  [ main:1445 ] - [ DEBUG ]  incremented pending_acquires: 2
+2018-06-28 11:32:08  [ main:1446 ] - [ DEBUG ]  com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 config: [start -> 2; min -> 2; max -> 100; inc -> 2; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 300000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 75000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2018-06-28 11:32:08  [ main:1477 ] - [ INFO ]  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 5000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2sbshw9wizpk9q1fhladj|5ccd43c2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2sbshw9wizpk9q1fhladj|5ccd43c2, idleConnectionTestPeriod -> 0, initialPoolSize -> 2, jdbcUrl -> jdbc:mysql://localhost:3306/test, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 1000, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2018-06-28 11:32:08  [ main:1485 ] - [ DEBUG ]  acquire test -- pool size: 0; target_pool_size: 2; desired target? 1
+2018-06-28 11:32:08  [ main:1486 ] - [ DEBUG ]  awaitAvailable(): [unknown]
+2018-06-28 11:32:08  [ main:1487 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 0, unused: 0, excluded: 0]
+2018-06-28 11:32:09  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:2854 ] - [ DEBUG ]  checkinAll(): com.mchange.v2.c3p0.stmt.GlobalMaxOnlyStatementCache stats -- total size: 0; checked out: 0; num connections: 0; num keys: 0
+2018-06-28 11:32:09  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:2854 ] - [ DEBUG ]  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6497026f.acquireResource() returning. 
+2018-06-28 11:32:09  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:2855 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 1, unused: 1, excluded: 0]
+2018-06-28 11:32:09  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:2855 ] - [ DEBUG ]  decremented pending_acquires: 1
+2018-06-28 11:32:09  [ main:2856 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@68a90fae)
+2018-06-28 11:32:09  [ main:2876 ] - [ DEBUG ]  cxnStmtMgr.statementSet( com.mysql.jdbc.JDBC4Connection@118db2f7 ).size(): 1
+2018-06-28 11:32:09  [ main:2876 ] - [ DEBUG ]  checkoutStatement: com.mchange.v2.c3p0.stmt.GlobalMaxOnlyStatementCache stats -- total size: 1; checked out: 1; num connections: 1; num keys: 1
+2018-06-28 11:32:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3344 ] - [ DEBUG ]  checkinAll(): com.mchange.v2.c3p0.stmt.GlobalMaxOnlyStatementCache stats -- total size: 1; checked out: 1; num connections: 1; num keys: 1
+2018-06-28 11:32:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3344 ] - [ DEBUG ]  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6497026f.acquireResource() returning. 
+2018-06-28 11:32:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3344 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@4de8b406 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@68a90fae)
+2018-06-28 11:32:10  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:3344 ] - [ DEBUG ]  decremented pending_acquires: 0
+2018-06-28 12:49:22  [ main:0 ] - [ INFO ]  MLog clients using log4j logging.
+2018-06-28 12:49:26  [ main:3592 ] - [ INFO ]  Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2018-06-28 12:49:26  [ main:3613 ] - [ DEBUG ]  MBean: com.mchange.v2.c3p0:type=PooledDataSource[2sbshw9wj2gzdqvuy9i5|59f95c5d] registered.
+2018-06-28 12:49:26  [ main:3691 ] - [ DEBUG ]  incremented pending_acquires: 1
+2018-06-28 12:49:26  [ main:3691 ] - [ DEBUG ]  incremented pending_acquires: 2
+2018-06-28 12:49:26  [ main:3691 ] - [ DEBUG ]  incremented pending_acquires: 3
+2018-06-28 12:49:26  [ main:3692 ] - [ DEBUG ]  incremented pending_acquires: 4
+2018-06-28 12:49:26  [ main:3692 ] - [ DEBUG ]  incremented pending_acquires: 5
+2018-06-28 12:49:26  [ main:3692 ] - [ DEBUG ]  incremented pending_acquires: 6
+2018-06-28 12:49:26  [ main:3692 ] - [ DEBUG ]  incremented pending_acquires: 7
+2018-06-28 12:49:26  [ main:3692 ] - [ DEBUG ]  incremented pending_acquires: 8
+2018-06-28 12:49:26  [ main:3692 ] - [ DEBUG ]  incremented pending_acquires: 9
+2018-06-28 12:49:26  [ main:3693 ] - [ DEBUG ]  incremented pending_acquires: 10
+2018-06-28 12:49:26  [ main:3693 ] - [ DEBUG ]  incremented pending_acquires: 11
+2018-06-28 12:49:26  [ main:3693 ] - [ DEBUG ]  incremented pending_acquires: 12
+2018-06-28 12:49:26  [ main:3693 ] - [ DEBUG ]  incremented pending_acquires: 13
+2018-06-28 12:49:26  [ main:3694 ] - [ DEBUG ]  incremented pending_acquires: 14
+2018-06-28 12:49:26  [ main:3694 ] - [ DEBUG ]  incremented pending_acquires: 15
+2018-06-28 12:49:26  [ main:3695 ] - [ DEBUG ]  incremented pending_acquires: 16
+2018-06-28 12:49:26  [ main:3695 ] - [ DEBUG ]  incremented pending_acquires: 17
+2018-06-28 12:49:26  [ main:3695 ] - [ DEBUG ]  incremented pending_acquires: 18
+2018-06-28 12:49:26  [ main:3695 ] - [ DEBUG ]  incremented pending_acquires: 19
+2018-06-28 12:49:26  [ main:3695 ] - [ DEBUG ]  incremented pending_acquires: 20
+2018-06-28 12:49:26  [ main:3695 ] - [ DEBUG ]  incremented pending_acquires: 21
+2018-06-28 12:49:26  [ main:3695 ] - [ DEBUG ]  incremented pending_acquires: 22
+2018-06-28 12:49:26  [ main:3696 ] - [ DEBUG ]  incremented pending_acquires: 23
+2018-06-28 12:49:26  [ main:3696 ] - [ DEBUG ]  incremented pending_acquires: 24
+2018-06-28 12:49:26  [ main:3696 ] - [ DEBUG ]  incremented pending_acquires: 25
+2018-06-28 12:49:26  [ main:3696 ] - [ DEBUG ]  incremented pending_acquires: 26
+2018-06-28 12:49:26  [ main:3696 ] - [ DEBUG ]  incremented pending_acquires: 27
+2018-06-28 12:49:26  [ main:3696 ] - [ DEBUG ]  incremented pending_acquires: 28
+2018-06-28 12:49:26  [ main:3696 ] - [ DEBUG ]  incremented pending_acquires: 29
+2018-06-28 12:49:26  [ main:3697 ] - [ DEBUG ]  incremented pending_acquires: 30
+2018-06-28 12:49:26  [ main:3697 ] - [ DEBUG ]  incremented pending_acquires: 31
+2018-06-28 12:49:26  [ main:3697 ] - [ DEBUG ]  incremented pending_acquires: 32
+2018-06-28 12:49:26  [ main:3697 ] - [ DEBUG ]  incremented pending_acquires: 33
+2018-06-28 12:49:26  [ main:3697 ] - [ DEBUG ]  incremented pending_acquires: 34
+2018-06-28 12:49:26  [ main:3697 ] - [ DEBUG ]  incremented pending_acquires: 35
+2018-06-28 12:49:26  [ main:3698 ] - [ DEBUG ]  incremented pending_acquires: 36
+2018-06-28 12:49:26  [ main:3698 ] - [ DEBUG ]  incremented pending_acquires: 37
+2018-06-28 12:49:26  [ main:3698 ] - [ DEBUG ]  incremented pending_acquires: 38
+2018-06-28 12:49:26  [ main:3698 ] - [ DEBUG ]  incremented pending_acquires: 39
+2018-06-28 12:49:26  [ main:3698 ] - [ DEBUG ]  incremented pending_acquires: 40
+2018-06-28 12:49:26  [ main:3699 ] - [ DEBUG ]  incremented pending_acquires: 41
+2018-06-28 12:49:26  [ main:3699 ] - [ DEBUG ]  incremented pending_acquires: 42
+2018-06-28 12:49:26  [ main:3699 ] - [ DEBUG ]  incremented pending_acquires: 43
+2018-06-28 12:49:26  [ main:3699 ] - [ DEBUG ]  incremented pending_acquires: 44
+2018-06-28 12:49:26  [ main:3699 ] - [ DEBUG ]  incremented pending_acquires: 45
+2018-06-28 12:49:26  [ main:3699 ] - [ DEBUG ]  incremented pending_acquires: 46
+2018-06-28 12:49:26  [ main:3699 ] - [ DEBUG ]  incremented pending_acquires: 47
+2018-06-28 12:49:26  [ main:3700 ] - [ DEBUG ]  incremented pending_acquires: 48
+2018-06-28 12:49:26  [ main:3700 ] - [ DEBUG ]  incremented pending_acquires: 49
+2018-06-28 12:49:26  [ main:3700 ] - [ DEBUG ]  incremented pending_acquires: 50
+2018-06-28 12:49:26  [ main:3701 ] - [ DEBUG ]  com.mchange.v2.resourcepool.BasicResourcePool@96532d6 config: [start -> 50; min -> 3; max -> 100; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 10000000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 900000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+2018-06-28 12:49:26  [ main:3702 ] - [ INFO ]  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2sbshw9wj2gzdqvuy9i5|59f95c5d, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2sbshw9wj2gzdqvuy9i5|59f95c5d, idleConnectionTestPeriod -> 0, initialPoolSize -> 50, jdbcUrl -> jdbc:mysql://localhost:3306/test, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 10000, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2018-06-28 12:49:26  [ main:3703 ] - [ DEBUG ]  acquire test -- pool size: 0; target_pool_size: 50; desired target? 1
+2018-06-28 12:49:26  [ main:3703 ] - [ DEBUG ]  awaitAvailable(): [unknown]
+2018-06-28 12:49:26  [ main:3703 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@96532d6 [managed: 0, unused: 0, excluded: 0]
+2018-06-28 12:49:27  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:4657 ] - [ DEBUG ]  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@13b25ce.acquireResource() returning. 
+2018-06-28 12:49:27  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:4657 ] - [ DEBUG ]  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@13b25ce.acquireResource() returning. 
+2018-06-28 12:49:27  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:4658 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@96532d6 [managed: 1, unused: 1, excluded: 0]
+2018-06-28 12:49:27  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:4658 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@96532d6 [managed: 2, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@77e866f8)
+2018-06-28 12:49:27  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0:4659 ] - [ DEBUG ]  decremented pending_acquires: 49
+2018-06-28 12:49:27  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2:4659 ] - [ DEBUG ]  decremented pending_acquires: 48
+2018-06-28 12:49:27  [ main:4659 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@96532d6 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@77e866f8)
+2018-06-28 12:49:30  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:7362 ] - [ DEBUG ]  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@13b25ce.acquireResource() returning. 
+2018-06-28 12:49:30  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:7363 ] - [ DEBUG ]  trace com.mchange.v2.resourcepool.BasicResourcePool@96532d6 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@77e866f8)
+2018-06-28 12:49:30  [ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1:7363 ] - [ DEBUG ]  decremented pending_acquires: 47

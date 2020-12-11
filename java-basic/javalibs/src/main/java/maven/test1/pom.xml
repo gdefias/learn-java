@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+   http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>com.companyname.project-group</groupId>
+   <artifactId>project</artifactId>
+   <version>1.0</version>
+</project>
+
+<!--
+POM代表工程对象模型。它是使用Maven工作时的基本组建，是一个xml文件。它被放在工程根目录下，文件命名为pom.xml
+
+每个工程应该只有一个POM文件:
+所有的POM文件需要project元素和三个必须的字段：groupId, artifactId,version。
+在仓库中的工程标识为 groupId:artifactId:version
+POM.xml的根元素是project，它有三个主要的子节点：
+groupId         这是工程组的标识。它在一个组织或者项目中通常是唯一的。例如，一个银行组织 com.company.bank 拥有所有的和银行相关的项目。
+artifactId      这是工程的标识。它通常是工程的名称。例如，消费者银行。groupId 和 artifactId 一起定义了 artifact 在仓库中的位置。
+version         这是工程的版本号。在 artifact 的仓库中，它用来区分不同的版本。例如：
+                com.company.bank:consumer-banking:1.0
+                com.company.bank:consumer-banking:1.1.
+
+Super POM:
+所有的POM都继承自一个父POM（无论是否显式定义了这个父POM）。父POM也被称作Super POM，它包含了一些可以被继承的默认设置
+-->

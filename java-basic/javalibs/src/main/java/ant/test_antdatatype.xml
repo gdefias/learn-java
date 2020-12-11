@@ -1,0 +1,113 @@
+<!--
+Ant提供一些预定义的数据类型，视作一组已经在产品中配置好的服务
+-->
+
+
+<!--文件集: 代表了一个文件集合。它被当作一个过滤器，用来包括或移除匹配某种模式的文件-->
+<fileset dir="${src}" casesensitive="yes">  <!--选择源文件夹中所有的.java文件，除了那些文件名中包含有'Stub'单词的文件。区分大小写-->
+   <include name="**/*.java"/>
+   <exclude name="**/*Stub*"/>
+</fileset>
+<!--
+fileset数据类型定义了一组文件，并通常表示为<fileset>元素。不过，许多ant任务构建成了隐式的fileset,这说明他们支持所有的fileset属性和嵌套元素。以下为fileset 的属性列表。
+● dir表示fileset 的基目录。
+● casesensitive的值如果为false，那么匹配文件名时，fileset不是区分大小写的，其默认值为true.
+● defaultexcludes 用来确定是否使用默认的排除模式，默认为true。
+● excludes 是用逗号分隔的需要派出的文件模式列表。
+● excludesfile 表示每行包含一个排除模式的文件的文件名。
+● includes 是用逗号分隔的，需要包含的文件模式列表。
+● includesfile 表示每行包括一个包含模式的文件名。
+-->
+
+
+
+<!--模式集合: 指的是一种模式，基于这种模式，能够很容易地过滤文件或者文件夹。模式可以使用下述元字符进行创建,
+? 仅匹配一个字符  * 匹配零个或者多个字符  ** 递归地匹配零个或者多个目录-->
+<patternset id="java.files.without.stubs">
+   <include name="src/**/*.java"/>
+   <exclude name="src/**/*Stub*"/>
+</patternset>
+<!--
+fileset 是对文件的分组，而patternset是对模式的分组，他们是紧密相关的概念。
+<patternset>支持4个属性：includes、excludex、includexfile、excludesfile，这些与fileset相同。
+patternset 还允许以下嵌套元素：include,exclude,includefile 和 excludesfile.
+-->
+
+
+<!--
+文件列表: 与文件集类似，除了以下几处不同:
+文件列表包含明确命名的文件的列表，同时其不支持通配符
+文件列表数据类型能够被应用于现有的或者还不存在的文件中
+-->
+<filelist id="config.files" dir="${webapp.src.folder}">
+   <file name="applicationConfig.xml"/>
+   <file name="faces-config.xml"/>
+   <file name="web.xml"/>
+   <file name="portlet.xml"/>
+</filelist>
+<!--
+filelist 是一个支持命名的文件列表的数据类型，包含在一个filelist类型中的文件不一定是存在的文件。以下是其所有的属性。
+● dir是用于计算绝对文件名的目录。
+● files 是用逗号分隔的文件名列表。
+● refid 是对某处定义的一个<filelist>的引用。
+注意 dir 和 files 都是必要的，除非指定了refid(这种情况下，dir和files都不允许使用)。
+
+
+-->
+
+
+<!--
+output.dir： 指向项目的输出文件夹
+releasenotes.dir： 指向项目的发行说明文件夹
+current.version： 指向项目的当前版本文件夹
+-->
+<copy todir="${output.dir}">  <!--拷贝任务: 将文件从一个地址拷贝到另一个地址-->
+    <fileset dir="${releasenotes.dir}" includes="**/*.txt"/>
+
+    <!--过滤器集合: 在所有文件中使用一个替换值来替换掉一些与模式相匹配的文本-->
+    <filterset>   <!--对一个已经发行的说明文件追加版本号-->
+        <filter token="VERSION" value="${current.version}"/>
+    </filterset>
+</copy>
+<!--
+filterset定义了一组过滤器，这些过滤器将在文件移动或复制时完成文件的文本替换。
+主要属性如下：
+● begintoken 表示嵌套过滤器所搜索的记号，这是标识其开始的字符串。
+● endtoken 表示嵌套过滤器所搜索的记号这是标识其结束的字符串。
+● id 是过滤器的唯一标志符。
+● refid 是对构建文件中某处定义一个过滤器的引用。
+-->
+
+
+<!--路径: 表示一个类路径-->
+<path id="gradle.Base.build.classpath.jar">
+   <pathelement path="${env.J2EE_HOME}/${j2ee.jar}"/>
+   <fileset dir="lib">
+      <include name="**/*.jar"/>
+   </fileset>
+</path>
+<!--
+java.home 指向环境变量JAVA_HOME
+
+path元素用来表示一个类路径，不过它还可以用于表示其他的路径。在用作几个属性时，路经中的各项用分号或冒号隔开。在构建的时候，此分隔符将代替当前平台中所有的路径分隔符，其拥有的属性如下。
+● location 表示一个文件或目录。Ant在内部将此扩展为一个绝对路径。
+● refid 是对当前构建文件中某处定义的一个path的引用。
+● path表示一个文件或路径名列表。
+-->
+
+<!--
+ervironment类型
+由Ant构建文件调用的外部命令或程序，<env>元素制定了哪些环境变量要传递给正在执行的系统命令，<env>元素可以接受以下属性。
+● file表示环境变量值的文件名。此文件名要被转换位一个绝对路径。
+● path表示环境变量的路径。Ant会将它转换为一个本地约定。
+● value 表示环境变量的一个直接变量。
+● key 表示环境变量名。
+注意 file path 或 value只能取一个
+-->
+
+
+
+
+
+
+

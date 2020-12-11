@@ -1,0 +1,21 @@
+<object-stream>
+  <xml.demo.User>
+    <userId>1</userId>
+    <userName>xstream</userName>
+    <credits>0</credits>
+    <logs>
+      <xml.demo.LoginLog>
+        <loginLogId>0</loginLogId>
+        <userId>0</userId>
+        <ip>192.168.1.91</ip>
+        <loginDate>2020-08-25 12:11:11.657 UTC</loginDate>
+      </xml.demo.LoginLog>
+      <xml.demo.LoginLog>
+        <loginLogId>0</loginLogId>
+        <userId>0</userId>
+        <ip>192.168.1.92</ip>
+        <loginDate>2020-08-25 12:11:11.659 UTC</loginDate>
+      </xml.demo.LoginLog>
+    </logs>
+  </xml.demo.User>
+</object-stream>
